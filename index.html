@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="nl" data-lang="nl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Rhenium Works — Willem Span</title>
+<meta name="description" content="Rhenium Works B.V. — Willem Span. Interim product management, UX-ontwerp en AI in de praktijk.">
+<meta name="author" content="Willem Span">
+<link rel="canonical" href="https://rheniumworks.nl/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Rhenium Works — Willem Span">
+<meta property="og:description" content="Interim product management, UX-ontwerp en AI in de praktijk.">
+<meta property="og:url" content="https://rheniumworks.nl/">
+<meta property="og:locale" content="nl_NL">
+<meta property="og:locale:alternate" content="en_GB">
+<meta name="theme-color" content="#fbfaf8" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#131313" media="(prefers-color-scheme: dark)">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ctext x='16' y='23' font-family='Georgia,serif' font-size='20' text-anchor='middle' fill='%231a1917'%3ERe%3C/text%3E%3C/svg%3E">
+
+<style>
+  :root {
+    --paper:   #fbfaf8;
+    --ink:     #1a1917;
+    --muted:   #6b6862;
+    --rule:    #e4e0d9;
+    --accent:  #3d5a6c;
+    --measure: 34rem;
+    --serif: ui-serif, Georgia, "Iowan Old Style", "Palatino Linotype", Palatino, "Times New Roman", serif;
+    --sans:  ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Inter, Roboto, "Helvetica Neue", Arial, sans-serif;
+    --mono:  ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, "Liberation Mono", monospace;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --paper:  #131313;
+      --ink:    #ece9e3;
+      --muted:  #9a958c;
+      --rule:   #2c2b28;
+      --accent: #8fb3c7;
+    }
+  }
+  :root[data-theme="dark"] {
+    --paper:  #131313;
+    --ink:    #ece9e3;
+    --muted:  #9a958c;
+    --rule:   #2c2b28;
+    --accent: #8fb3c7;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; }
+
+  html { -webkit-text-size-adjust: 100%; }
+
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--sans);
+    font-size: 17px;
+    line-height: 1.65;
+    font-kerning: normal;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  .page {
+    max-width: 44rem;
+    margin: 0 auto;
+    padding: 0 16px;
+  }
+
+  a { color: inherit; }
+  a:focus-visible, button:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+
+  /* ---------- language switch ---------- */
+  html[data-lang="nl"] .en { display: none; }
+  html[data-lang="en"] .nl { display: none; }
+
+  /* ---------- masthead ---------- */
+  .masthead {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 1.5rem;
+    padding: 2.5rem 0 0;
+  }
+
+  .wordmark {
+    display: flex;
+    align-items: baseline;
+    gap: .6rem;
+    font-family: var(--serif);
+    font-size: 1.0625rem;
+    letter-spacing: .01em;
+  }
+
+  .element {
+    font-family: var(--mono);
+    font-size: .6875rem;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: var(--muted);
+    border: 1px solid var(--rule);
+    border-radius: 2px;
+    padding: .15em .45em;
+    white-space: nowrap;
+  }
+
+  .langswitch {
+    display: flex;
+    align-items: baseline;
+    gap: .1rem;
+    font-family: var(--mono);
+    font-size: .6875rem;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+  .langswitch button {
+    font: inherit;
+    letter-spacing: inherit;
+    text-transform: inherit;
+    background: none;
+    border: 0;
+    padding: .2em .4em;
+    color: var(--muted);
+    cursor: pointer;
+  }
+  .langswitch button[aria-pressed="true"] {
+    color: var(--ink);
+    text-decoration: underline;
+    text-underline-offset: .35em;
+    text-decoration-thickness: 1px;
+  }
+  .langswitch span[aria-hidden="true"] { opacity: .45; }
+
+  /* ---------- hero ---------- */
+  .hero { padding: clamp(3.5rem, 12vw, 7rem) 0 clamp(3rem, 9vw, 5rem); }
+
+  h1 {
+    font-family: var(--serif);
+    font-weight: 400;
+    font-size: clamp(2.25rem, 8vw, 3.5rem);
+    line-height: 1.08;
+    letter-spacing: -0.015em;
+    margin: 0 0 1.5rem;
+    max-width: 18ch;
+  }
+
+  .lede {
+    font-size: clamp(1.0625rem, 2.6vw, 1.25rem);
+    line-height: 1.6;
+    max-width: var(--measure);
+    margin: 0;
+    color: var(--ink);
+  }
+  .lede + .lede { margin-top: 1.1rem; color: var(--muted); }
+
+  /* ---------- sections ---------- */
+  section {
+    border-top: 1px solid var(--rule);
+    padding: 2.75rem 0;
+  }
+
+  h2 {
+    font-family: var(--mono);
+    font-weight: 400;
+    font-size: .6875rem;
+    letter-spacing: .16em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin: 0 0 2rem;
+  }
+
+  .entry { max-width: var(--measure); }
+  .entry + .entry { margin-top: 2.25rem; }
+
+  .entry h3 {
+    font-family: var(--serif);
+    font-weight: 400;
+    font-size: 1.3125rem;
+    line-height: 1.3;
+    margin: 0 0 .5rem;
+  }
+
+  .entry p { margin: 0; color: var(--muted); }
+
+  .entry .meta {
+    display: block;
+    font-family: var(--mono);
+    font-size: .6875rem;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-top: .75rem;
+  }
+
+  .entry h3 a {
+    text-decoration: none;
+    background-image: linear-gradient(var(--rule), var(--rule));
+    background-repeat: no-repeat;
+    background-size: 100% 1px;
+    background-position: 0 100%;
+    padding-bottom: 1px;
+    transition: background-image .15s;
+  }
+  .entry h3 a:hover {
+    background-image: linear-gradient(var(--accent), var(--accent));
+  }
+
+  /* ---------- contact ---------- */
+  .contact { max-width: var(--measure); }
+  .contact p { margin: 0 0 1.75rem; color: var(--muted); }
+
+  .links {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  .links li + li { margin-top: .4rem; }
+  .links a {
+    font-family: var(--serif);
+    font-size: 1.25rem;
+    text-decoration: none;
+    color: var(--accent);
+    border-bottom: 1px solid var(--rule);
+    padding-bottom: 2px;
+    word-break: break-word;
+  }
+  .links a:hover { border-bottom-color: var(--accent); }
+
+  /* ---------- footer ---------- */
+  footer {
+    border-top: 1px solid var(--rule);
+    padding: 2.25rem 0 4rem;
+    font-size: .8125rem;
+    line-height: 1.7;
+    color: var(--muted);
+  }
+  footer .details {
+    display: flex;
+    flex-wrap: wrap;
+    gap: .25rem 1.25rem;
+    margin: 0 0 1.5rem;
+    padding: 0;
+    list-style: none;
+  }
+  footer .colophon {
+    max-width: var(--measure);
+    margin: 0;
+    font-size: .8125rem;
+  }
+  footer .colophon b { font-weight: 600; color: var(--ink); }
+
+  @media (max-width: 34rem) {
+    .masthead { flex-direction: column; align-items: flex-start; gap: .75rem; }
+    body { font-size: 16px; }
+  }
+
+  @media print {
+    body { background: #fff; color: #000; }
+    .langswitch { display: none; }
+  }
+</style>
+</head>
+
+<body>
+<div class="page">
+
+  <header class="masthead">
+    <div class="wordmark">
+      <strong style="font-weight:600">Rhenium Works</strong>
+      <span class="element" aria-hidden="true">Re · 75</span>
+    </div>
+
+    <nav class="langswitch" aria-label="Taal / Language">
+      <button type="button" data-set-lang="nl" aria-pressed="true" lang="nl">NL</button>
+      <span aria-hidden="true">/</span>
+      <button type="button" data-set-lang="en" aria-pressed="false" lang="en">EN</button>
+    </nav>
+  </header>
+
+  <main>
+
+    <div class="hero">
+      <h1>
+        <span class="nl">Producten die werken, in domeinen die ingewikkeld zijn.</span>
+        <span class="en">Products that work, in domains that are anything but simple.</span>
+      </h1>
+
+      <p class="lede">
+        <span class="nl">Ik ben Willem Span. Als zelfstandig product owner en ontwerper werk ik aan software waar de techniek ingewikkeld is en de gebruiker daar niets van hoort te merken — internationale verzending, AI-toepassingen, marketingtechnologie.</span>
+        <span class="en">I'm Willem Span. As an independent product owner and designer I work on software where the engineering is hard and the user should never have to notice — international shipping, applied AI, marketing technology.</span>
+      </p>
+      <p class="lede">
+        <span class="nl">Opgeleid als industrieel ontwerper, inmiddels net zo vaak in de code als in de roadmap.</span>
+        <span class="en">Trained as an industrial design engineer; these days as often in the code as in the roadmap.</span>
+      </p>
+    </div>
+
+    <section aria-labelledby="work">
+      <h2 id="work"><span class="nl">Wat ik doe</span><span class="en">What I do</span></h2>
+
+      <div class="entry">
+        <h3><span class="nl">(Interim) product management</span><span class="en">(Interim) product management</span></h3>
+        <p>
+          <span class="nl">Ik neem een product over, of een deel ervan: discovery, roadmap, backlog en de gesprekken die daarbij horen. Van de strategische keuze tot de acceptatiecriteria van één ticket — allebei, want het een houdt zonder het ander geen stand.</span>
+          <span class="en">I take on a product, or a piece of one: discovery, roadmap, backlog, and the conversations that come with them. From the strategic call down to the acceptance criteria on a single ticket — both, because neither survives without the other.</span>
+        </p>
+      </div>
+
+      <div class="entry">
+        <h3><span class="nl">UX-ontwerp</span><span class="en">UX design</span></h3>
+        <p>
+          <span class="nl">Onderzoek, interactieontwerp en werkende prototypes. Een ontwerp dat je kunt aanklikken beslecht een discussie sneller dan een vergadering erover.</span>
+          <span class="en">Research, interaction design and working prototypes. A design you can click through settles an argument faster than a meeting about it.</span>
+        </p>
+      </div>
+
+      <div class="entry">
+        <h3><span class="nl">AI in de praktijk</span><span class="en">Applied AI</span></h3>
+        <p>
+          <span class="nl">Van experiment naar iets dat in productie staat en blijft werken. Ik bouw zelf mee — dagelijks met Claude Code, de Anthropic API en Vertex AI — en weet daardoor vrij precies wat een belofte op dit terrein wel en niet waard is.</span>
+          <span class="en">From experiment to something that runs in production and keeps running. I build alongside the team — daily with Claude Code, the Anthropic API and Vertex AI — which makes it fairly clear to me which promises in this field hold up and which don't.</span>
+        </p>
+      </div>
+    </section>
+
+    <section aria-labelledby="now">
+      <h2 id="now"><span class="nl">Waar ik nu aan werk</span><span class="en">Currently</span></h2>
+
+      <div class="entry">
+        <h3>FedEx</h3>
+        <p>
+          <span class="nl">Product owner voor internationale verzending, en betrokken bij de AI-experimenten binnen dezelfde organisatie.</span>
+          <span class="en">Product owner for international shipping, and involved in the organisation's AI experimentation.</span>
+        </p>
+        <span class="meta"><span class="nl">Via WannaFlex · sinds 2026</span><span class="en">Through WannaFlex · since 2026</span></span>
+      </div>
+
+      <div class="entry">
+        <h3><a href="https://runnr.ai" rel="noopener">Runnr.ai</a></h3>
+        <p>
+          <span class="nl">Designconsultancy rond de AI-gestuurde gastcommunicatie van het platform.</span>
+          <span class="en">Design consulting on the platform's AI-driven guest communication.</span>
+        </p>
+        <span class="meta"><span class="nl">Sinds 2026</span><span class="en">Since 2026</span></span>
+      </div>
+    </section>
+
+    <section aria-labelledby="background">
+      <h2 id="background"><span class="nl">Achtergrond</span><span class="en">Background</span></h2>
+      <div class="entry">
+        <p>
+          <span class="nl">Industrieel ontwerpen aan de TU Delft. Daarna defensie, logistiek en martech — steeds op de plek waar techniek, ontwerp en de klant elkaar raken, en steeds in organisaties waar een verkeerde aanname duur is.</span>
+          <span class="en">Industrial design engineering at TU Delft. Then defence, logistics and martech — always at the seam where engineering, design and the customer meet, and always in organisations where a wrong assumption is expensive.</span>
+        </p>
+      </div>
+    </section>
+
+    <section aria-labelledby="contact">
+      <h2 id="contact"><span class="nl">Contact</span><span class="en">Get in touch</span></h2>
+      <div class="contact">
+        <ul class="links">
+          <li><a href="mailto:willem@rheniumworks.nl">willem@rheniumworks.nl</a></li>
+          <li><a href="https://www.linkedin.com/in/willem-span-7402943a" rel="noopener">LinkedIn</a></li>
+        </ul>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <ul class="details">
+      <li>Rhenium Works B.V.</li>
+      <li>Bentinckshof 48, 4194 CD Meteren</li>
+      <li>KvK 42158995</li>
+      <li><span class="nl">btw</span><span class="en">VAT</span> NL869973411B01</li>
+    </ul>
+    <p class="colophon">
+      <span class="nl"><b>Rhenium</b> — element 75. Een van de zeldzaamste metalen in de aardkorst, met het op één na hoogste smeltpunt van allemaal. Het zit in de turbinebladen van straalmotoren, precies daar waar niets anders het uithoudt.</span>
+      <span class="en"><b>Rhenium</b> — element 75. One of the rarest metals in the earth's crust, with the second-highest melting point of them all. It goes into jet engine turbine blades: exactly where nothing else holds up.</span>
+    </p>
+  </footer>
+
+</div>
+
+<script>
+(function () {
+  var root = document.documentElement;
+  var buttons = document.querySelectorAll('[data-set-lang]');
+
+  function setLang(lang, remember) {
+    root.setAttribute('data-lang', lang);
+    root.setAttribute('lang', lang);
+    buttons.forEach(function (b) {
+      b.setAttribute('aria-pressed', String(b.dataset.setLang === lang));
+    });
+    if (remember) {
+      try { localStorage.setItem('rw-lang', lang); } catch (e) {}
+    }
+  }
+
+  var stored = null;
+  try { stored = localStorage.getItem('rw-lang'); } catch (e) {}
+
+  if (stored === 'nl' || stored === 'en') {
+    setLang(stored, false);
+  } else {
+    var nav = (navigator.language || 'nl').toLowerCase();
+    setLang(nav.indexOf('nl') === 0 ? 'nl' : 'en', false);
+  }
+
+  buttons.forEach(function (b) {
+    b.addEventListener('click', function () { setLang(b.dataset.setLang, true); });
+  });
+})();
+</script>
+</body>
+</html>
